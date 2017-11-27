@@ -1,0 +1,13 @@
+<h1>Map Example</h1>
+
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :search, params[:search] %><%= submit_tag "Search San Diego" %>
+<% end %>
+
+<!-- We add @pins in the props passed to the Map component -->
+<%= react_component("Map", {
+  googleApiKey: @google_api_key,
+  center: @map_center,
+  zoom: @map_zoom,
+  pins: @pins
+}) %>
